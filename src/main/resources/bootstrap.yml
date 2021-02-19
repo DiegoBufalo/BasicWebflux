@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: 'projetoDemo'
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/postgres?schema=webflux
+    username: postgres
+    password: root

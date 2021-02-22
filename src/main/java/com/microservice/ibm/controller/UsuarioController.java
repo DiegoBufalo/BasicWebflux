@@ -44,6 +44,12 @@ public class UsuarioController {
 		return usuarioService.retornarUsuario(id);
 	}
 	
+	@GetMapping(value = "/filtro/{sexo}")
+	public Flux<Usuario> buscarUsuariosPorSexo(@PathVariable Character sexo) {
+		return usuarioService.retornarUsuarioPorSexo(sexo);
+	}
+	
+	
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public Mono<Usuario> cadastrarUsuario(@Valid @RequestBody UsuarioDTO usuario) {

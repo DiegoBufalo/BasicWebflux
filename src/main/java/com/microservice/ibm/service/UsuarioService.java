@@ -29,6 +29,13 @@ public class UsuarioService {
 				.switchIfEmpty(monoResponseStatusNotFoundException());
 	}
 	
+	
+	public Flux<Usuario> retornarUsuarioPorSexo(Character sexo){
+		return usuarioRepository.findAll()
+				.filter(u -> u.getSexo().equals(sexo))
+				.switchIfEmpty(monoResponseStatusNotFoundException());
+	}
+	
 	public Mono<Usuario> inserirUsuario(UsuarioDTO usuario){
 		Usuario usuarioConvertido = usuario.toUsuario(usuario);
 		return usuarioRepository.save(usuarioConvertido);
@@ -49,6 +56,7 @@ public class UsuarioService {
 
 	
 	}
+
 
 	
 	
